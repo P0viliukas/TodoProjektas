@@ -1,0 +1,24 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.IOException;
+import java.time.Duration;
+
+public class BaseTest {
+    WebDriver driver;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        driver = new ChromeDriver();
+        driver.get("https://todomvc.com/examples/angular/dist/browser/#/all");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+    }
+
+    @AfterEach
+    void close() {
+//        driver.quit();
+    }
+}
